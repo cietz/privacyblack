@@ -474,7 +474,7 @@ export default function CheckoutPage() {
               {/* Bloco de dados do usuário */}
 
               {/* Bloco do plano premium */}
-              <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 animate-in fade-in slide-in-from-bottom duration-600 delay-300 hover:shadow-lg transition-shadow">
+              <div className="rounded-lg border bg-gray-800 text-white shadow-sm p-6 animate-in fade-in slide-in-from-bottom duration-600 delay-300 hover:shadow-lg transition-shadow">
                 <div className="text-center space-y-3">
                   <h3 className="text-lg font-semibold text-white">
                     Plano Anual Premium
@@ -609,7 +609,7 @@ export default function CheckoutPage() {
                   </div>
                 </div>
               </div>{" "}
-              <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 animate-in fade-in slide-in-from-bottom duration-600 delay-200 hover:shadow-lg transition-shadow">
+              <div className="rounded-lg border bg-gray-800 text-white shadow-sm p-6 animate-in fade-in slide-in-from-bottom duration-600 delay-200 hover:shadow-lg transition-shadow">
                 <div className="text-center space-y-4">
                   <div className="flex items-center justify-center gap-2">
                     <h3 className="text-lg font-semibold text-white">
@@ -634,10 +634,10 @@ export default function CheckoutPage() {
                   </div>
                 </div>
               </div>
-              <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 animate-in fade-in slide-in-from-bottom duration-600 delay-300 hover:shadow-lg transition-shadow">
+              <div className="rounded-lg border bg-gray-800 text-white shadow-sm p-6 animate-in fade-in slide-in-from-bottom duration-600 delay-300 hover:shadow-lg transition-shadow">
                 <div className="space-y-4">
                   <div className="flex items-center justify-center gap-2">
-                    <h3 className="text-lg font-semibold text-gray-900 text-center">
+                    <h3 className="text-lg font-semibold text-white text-center">
                       Código PIX Copia e Cola
                     </h3>
                   </div>
