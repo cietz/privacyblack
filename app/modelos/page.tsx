@@ -262,7 +262,7 @@ function PrivacyBlackPageContent() {
           <div className="flex items-center justify-between w-full">
             {/* Botão voltar */}
             <button
-              onClick={() => (window.location.href = "/inicio")}
+              onClick={() => (window.location.href = "/")}
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 w-10 transition-all duration-200 hover:scale-105 hover:bg-gray-800 text-gray-300"
             >
               <ArrowLeft className="h-5 w-5" />
