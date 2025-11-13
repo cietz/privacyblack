@@ -1,5 +1,6 @@
 "use client";
 // Test commit for Vercel deployment
+// Force redeploy on Vercel
 import Image from "next/image";
 import Script from "next/script";
 import { ExternalLink, Shield, Check, Search } from "lucide-react";
