@@ -379,7 +379,7 @@ export default function CheckoutPage() {
             {" "}
             {/* Botão Voltar */}
             <button
-              onClick={() => history.back()}
+              onClick={() => (window.location.href = "/")}
               className="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium h-10 w-10 hover:text-white hover:bg-gray-800 transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-600"
             >
               <ArrowLeft className="h-5 w-5" />
