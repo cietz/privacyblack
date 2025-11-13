@@ -5,6 +5,12 @@ import { ExternalLink, Shield, Check, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -299,7 +305,7 @@ export default function PrivacyBlackPage() {
               position: "relative",
               width: "100%",
               maxWidth: "1000px",
-              paddingBottom: "10%",
+              paddingBottom: "5%",
               margin: "0 auto",
             }}
           >
@@ -361,7 +367,7 @@ export default function PrivacyBlackPage() {
                   style={{
                     background: "#00c27a",
                     padding:
-                      "clamp(1.2rem, 5vw, 2rem) clamp(1.5rem, 7vw, 3rem)",
+                      "clamp(1.2rem, 5vw, 1rem) clamp(1.5rem, 7vw, 3rem)",
                     borderRadius: "12px",
                     textAlign: "center",
                     color: "white",
@@ -404,59 +410,59 @@ export default function PrivacyBlackPage() {
                 </div>
               </div>
             </div>
-
-            <div
-              id="paradisePlayer_1761246902292CTA"
-              style={{
-                display: "none",
-                textAlign: "center",
-                marginTop: "20px",
-              }}
-            >
-              <a
-                href="#"
-                id="paradisePlayer_1761246902292CTALink"
-                target="_blank"
-                style={{
-                  background: "#8b5cf6",
-                  color: "white",
-                  padding: "15px 30px",
-                  borderRadius: "9999px",
-                  textDecoration: "none",
-                  fontWeight: "bold",
-                  boxShadow: "0 6px 20px rgba(0,0,0,0.4)",
-                  display: "inline-block",
-                }}
-              >
-                COMPRAR AGORA
-              </a>
-            </div>
           </div>
 
-          <button
-            onClick={() => (window.location.href = getCheckoutUrl())}
-            className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-lg hover:from-orange-600 hover:to-red-600 transition-all duration-200 hover:scale-105 shadow-lg"
-            type="button"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-4 w-4"
-              aria-hidden="true"
+          <div className="space-y-3">
+            <button
+              onClick={() => (window.location.href = getCheckoutUrl())}
+              className="w-full inline-flex items-center justify-center gap-2 px-8 py-5 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-lg hover:from-orange-600 hover:to-red-600 transition-all duration-200 hover:scale-105 shadow-lg text-lg"
+              type="button"
             >
-              <circle cx="12" cy="12" r="10" />
-              <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
-              <path d="M12 18V6" />
-            </svg>
-            Plano Anual R$ 19,90
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-5 w-5"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+                <path d="M12 18V6" />
+              </svg>
+              Plano Mensal R$ 19,90
+            </button>
+
+            <button
+              onClick={() => (window.location.href = "/checkout2")}
+              className="w-full inline-flex items-center justify-center gap-2 px-8 py-5 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-lg hover:from-orange-600 hover:to-red-600 transition-all duration-200 hover:scale-105 shadow-lg text-lg"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-5 w-5"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+                <path d="M12 18V6" />
+              </svg>
+              Plano Anual R$ 27,90
+            </button>
+          </div>
 
           {/* =============================================================== */}
           {/* BADGE DE GARANTIA - Indicador de reembolso do plano premium */}
@@ -504,7 +510,7 @@ export default function PrivacyBlackPage() {
           {/* =============================================================== */}
           {/* BANNER PREMIUM MODELS - Indicador de modelos no plano premium */}
           {/* =============================================================== */}
-          <div className="bg-black pt-2 py-4 border-t border-b border-gray-700 flex justify-center">
+          <div className="bg-black pt-1 py-2 border-t border-b border-gray-700 flex justify-center">
             <div className="border-b-2 border-gray-900 pb-2 px-4">
               <span className="font-medium text-white">
                 +3.000 Modelos no Premium
@@ -616,7 +622,7 @@ export default function PrivacyBlackPage() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth={2}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className="h-4 w-4"
@@ -637,7 +643,7 @@ export default function PrivacyBlackPage() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth={2}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className="h-4 w-4"
@@ -785,6 +791,364 @@ export default function PrivacyBlackPage() {
                 </div>
               </DialogContent>
             </Dialog>
+          </div>
+
+          <div className="mb-12">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center rounded-md border transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent shadow hover:bg-primary/80 bg-[#fd7f49] text-white mb-4 px-4 py-2 text-sm font-bold">
+                DEPOIMENTOS REAIS
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+                O Que Nossos Assinantes Dizem
+              </h2>
+              <p className="text-gray-300 text-xl">
+                Avaliação média: ⭐ 4.9/5.0 (mais de 2.500 avaliações)
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="rounded-xl bg-gray-800 text-white shadow border-2 border-gray-700 transition-all">
+                <div className="p-6">
+                  <div className="flex items-center gap-1 mb-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                  </div>
+                  <p className="text-gray-300 mb-4 italic leading-relaxed">
+                    "Valeu muito a pena! Conteúdo de qualidade e atendimento
+                    rápido. Recomendo!"
+                  </p>
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#fd7f49] to-[#ff9966] rounded-full flex items-center justify-center text-white font-bold">
+                      J
+                    </div>
+                    <div>
+                      <p className="font-bold text-white">João P.</p>
+                      <p className="text-gray-400 text-xs">São Paulo</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-xl bg-gray-800 text-white shadow border-2 border-gray-700 hover:border-[#fd7f49] hover:shadow-xl transition-all">
+                <div className="p-6">
+                  <div className="flex items-center gap-1 mb-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                  </div>
+                  <p className="text-gray-300 mb-4 italic leading-relaxed">
+                    "Melhor investimento que fiz. Acesso imediato e tudo
+                    funcionando perfeitamente."
+                  </p>
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#fd7f49] to-[#ff9966] rounded-full flex items-center justify-center text-white font-bold">
+                      C
+                    </div>
+                    <div>
+                      <p className="font-bold text-white">Carlos M.</p>
+                      <p className="text-gray-400 text-xs">Rio de Janeiro</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-xl bg-gray-800 text-white shadow border-2 border-gray-700 hover:border-[#fd7f49] hover:shadow-xl transition-all">
+                <div className="p-6">
+                  <div className="flex items-center gap-1 mb-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-star w-5 h-5 text-yellow-400"
+                    >
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                  </div>
+                  <p className="text-gray-300 mb-4 italic leading-relaxed">
+                    "Totalmente sigiloso e seguro. Processo de pagamento super
+                    tranquilo!"
+                  </p>
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#fd7f49] to-[#ff9966] rounded-full flex items-center justify-center text-white font-bold">
+                      P
+                    </div>
+                    <div>
+                      <p className="font-bold text-white">Pedro S.</p>
+                      <p className="text-gray-400 text-xs">Belo Horizonte</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-12">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center rounded-md border transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent shadow hover:bg-primary/80 bg-[#fd7f49] text-white mb-4 px-4 py-2 text-sm font-bold">
+                DÚVIDAS FREQUENTES
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+                Perguntas Frequentes
+              </h2>
+              <p className="text-gray-300 text-xl">
+                Tire todas as suas dúvidas antes de assinar
+              </p>
+            </div>
+            <div className="rounded-xl bg-gray-800 text-white border-2 border-gray-700 shadow-xl max-w-4xl mx-auto">
+              <div className="p-8 md:p-10">
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem
+                    value="item-1"
+                    className="border-b border-gray-700 last:border-0"
+                  >
+                    <AccordionTrigger className="text-left font-bold text-white hover:text-[#fd7f49] py-5 text-lg">
+                      É sigiloso? Vai aparecer na fatura?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-300">
+                      Sim, mantemos total sigilo e privacidade. A cobrança
+                      aparecerá na sua fatura como "Privacy Black" ou similar,
+                      sem detalhes específicos sobre o conteúdo do serviço.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem
+                    value="item-2"
+                    className="border-b border-gray-700 last:border-0"
+                  >
+                    <AccordionTrigger className="text-left font-bold text-white hover:text-[#fd7f49] py-5 text-lg">
+                      Quando tenho acesso depois do pagamento?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-300">
+                      Acesso imediato após a confirmação do pagamento. Você
+                      receberá as credenciais de acesso por e-mail
+                      automaticamente assim que o pagamento for processado.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem
+                    value="item-3"
+                    className="border-b border-gray-700 last:border-0"
+                  >
+                    <AccordionTrigger className="text-left font-bold text-white hover:text-[#fd7f49] py-5 text-lg">
+                      Posso cancelar quando quiser? A assinatura renova
+                      automaticamente?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-300">
+                      Sim, você pode cancelar a qualquer momento sem taxas
+                      adicionais. A assinatura renova automaticamente
+                      mensalmente, mas você pode desativar a renovação
+                      automática nas configurações da sua conta a qualquer
+                      momento.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem
+                    value="item-4"
+                    className="border-b border-gray-700 last:border-0"
+                  >
+                    <AccordionTrigger className="text-left font-bold text-white hover:text-[#fd7f49] py-5 text-lg">
+                      Tem garantia de reembolso?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-300">
+                      Sim, oferecemos garantia de reembolso de 30 dias. Se você
+                      não ficar satisfeito com o serviço, pode solicitar o
+                      reembolso completo sem burocracias.
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+            </div>
           </div>
 
           {/* =============================================================== */}
