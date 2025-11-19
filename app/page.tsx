@@ -102,20 +102,14 @@ export default function PrivacyBlackPage() {
     return false;
   };
 
-  // Inicialização do VSL Player
+  // Inicialização do VSL Player (novo: paradisePlayer_1763531255670)
   useEffect(() => {
     const video = document.getElementById(
-      "paradisePlayer_1761246902292"
-    ) as HTMLVideoElement;
+      "paradisePlayer_1763531255670"
+    ) as HTMLVideoElement | null;
     const muteOverlay = document.getElementById(
-      "paradisePlayer_1761246902292MuteOverlay"
+      "paradisePlayer_1763531255670MuteOverlay"
     );
-    const ctaButton = document.getElementById(
-      "paradisePlayer_1761246902292CTA"
-    );
-    const ctaLink = document.getElementById(
-      "paradisePlayer_1761246902292CTALink"
-    ) as HTMLAnchorElement;
 
     if (!video) return;
 
@@ -126,73 +120,51 @@ export default function PrivacyBlackPage() {
     const playPromise = video.play();
     if (playPromise !== undefined) {
       playPromise.catch(() => {
-        // Autoplay prevented
+        // Autoplay prevented. User interaction needed.
       });
     }
 
-    // Handler do overlay de unmute
-    if (muteOverlay) {
-      const unmuteHandler = () => {
-        video.muted = false;
-        video.currentTime = 0;
-        video.play();
+    // Unmute overlay handler
+    const unmuteHandler = () => {
+      video.muted = false;
+      video.currentTime = 0;
+      video.play();
+      if (muteOverlay instanceof HTMLElement) {
         muteOverlay.style.opacity = "0";
         setTimeout(() => {
           muteOverlay.style.display = "none";
         }, 300);
-      };
+      }
+      // optional analytics tracking
+      if (
+        (window as any).paradiseTracker &&
+        (window as any).paradiseTracker.send
+      ) {
+        (window as any).paradiseTracker.send("unmute");
+        (window as any).paradiseTracker.send("play");
+      }
+    };
 
+    if (muteOverlay) {
       muteOverlay.addEventListener("click", unmuteHandler, { once: true });
       muteOverlay.addEventListener("touchend", unmuteHandler, { once: true });
     }
 
-    // Click no vídeo para pausar/play
-    video.addEventListener("click", () => {
+    // Toggle play/pause on click
+    const togglePlay = () => {
       if (video.paused) video.play();
       else video.pause();
-    });
-
-    // Setup UTM tracking para CTA
-    if (ctaLink) {
-      const urlParams = new URLSearchParams(window.location.search);
-      const utmKeys = [
-        "utm_source",
-        "utm_medium",
-        "utm_campaign",
-        "utm_term",
-        "utm_content",
-      ];
-      const baseUrl = "https://compraseguraonline.org.ua/c/95feedbad3";
-
-      try {
-        const url = new URL(baseUrl);
-        utmKeys.forEach((key) => {
-          if (urlParams.has(key)) {
-            url.searchParams.set(key, urlParams.get(key)!);
-          }
-        });
-        ctaLink.href = url.toString();
-      } catch (e) {
-        ctaLink.href = baseUrl;
-      }
-    }
-
-    // Mostrar CTA após 10 segundos
-    const timeUpdateHandler = () => {
-      if (!ctaButton || !video.duration) return;
-      const ctaTime = 10;
-
-      if (video.currentTime >= ctaTime && ctaButton.style.display === "none") {
-        ctaButton.style.display = "block";
-        ctaButton.style.animation = "paradise-fadeInUp 0.5s ease-out forwards";
-      }
     };
 
-    video.addEventListener("timeupdate", timeUpdateHandler);
+    video.addEventListener("click", togglePlay);
 
     // Cleanup
     return () => {
-      video.removeEventListener("timeupdate", timeUpdateHandler);
+      video.removeEventListener("click", togglePlay);
+      if (muteOverlay) {
+        muteOverlay.removeEventListener("click", unmuteHandler as any);
+        muteOverlay.removeEventListener("touchend", unmuteHandler as any);
+      }
     };
   }, []);
 
@@ -301,22 +273,21 @@ export default function PrivacyBlackPage() {
           {/* VSL PLAYER */}
           {/* =============================================================== */}
           <div
-            id="paradisePlayer_1761246902292Container"
-            className="paradise-player-container mb-2"
+            id="paradisePlayer_1763531255670Container"
+            className="paradise-player-container"
             style={{
               position: "relative",
               width: "100%",
-              maxWidth: "1000px",
-              paddingBottom: "5%",
-              margin: "0 auto",
+              maxWidth: "100%",
+              margin: "20px auto",
             }}
           >
             <div
-              id="paradisePlayer_1761246902292Wrapper"
+              id="paradisePlayer_1763531255670Wrapper"
               style={{
                 position: "relative",
                 width: "100%",
-                paddingBottom: "100%",
+                paddingBottom: "56.25%", // 16:9
                 background: "#000",
                 borderRadius: "12px",
                 overflow: "hidden",
@@ -324,7 +295,7 @@ export default function PrivacyBlackPage() {
               }}
             >
               <video
-                id="paradisePlayer_1761246902292"
+                id="paradisePlayer_1763531255670"
                 style={{
                   position: "absolute",
                   top: 0,
@@ -335,19 +306,20 @@ export default function PrivacyBlackPage() {
                   cursor: "pointer",
                 }}
                 playsInline
+                webkit-playsinline="true"
                 preload="auto"
                 poster="https://t3.ftcdn.net/jpg/05/25/58/46/360_F_525584616_lKJ9605fRFWk8wxJRLZfU9lonvJzV3fa.jpg"
                 onContextMenu={(e) => e.preventDefault()}
               >
                 <source
-                  src="https://res.cloudinary.com/dzklgj8sg/video/upload/v1761244435/Design_sem_nome_33_1_q9pcfd.mp4"
+                  src="https://res.cloudinary.com/dtrq1udrm/video/upload/v1763531189/Design_sem_nome_33_1_1_shduog.mp4"
                   type="video/mp4"
                 />
                 Seu navegador não suporta vídeos HTML5.
               </video>
 
               <div
-                id="paradisePlayer_1761246902292MuteOverlay"
+                id="paradisePlayer_1763531255670MuteOverlay"
                 style={{
                   position: "absolute",
                   top: 0,
@@ -364,12 +336,12 @@ export default function PrivacyBlackPage() {
                 }}
               >
                 <div
-                  id="paradisePlayer_1761246902292MuteButton"
+                  id="paradisePlayer_1763531255670MuteButton"
                   className="paradise-mute-bounce"
                   style={{
                     background: "#00c27a",
                     padding:
-                      "clamp(1.2rem, 5vw, 1rem) clamp(1.5rem, 7vw, 3rem)",
+                      "clamp(1.2rem, 5vw, 2rem) clamp(1.5rem, 7vw, 3rem)",
                     borderRadius: "12px",
                     textAlign: "center",
                     color: "white",
@@ -1343,11 +1315,12 @@ export default function PrivacyBlackPage() {
 
         {/* Paradise Player Styles */}
         <style jsx global>{`
-          #paradisePlayer_1761246902292::-webkit-media-controls,
-          #paradisePlayer_1761246902292::-webkit-media-controls-enclosure {
+          #paradisePlayer_1763531255670::-webkit-media-controls,
+          #paradisePlayer_1763531255670::-webkit-media-controls-enclosure {
             display: none !important;
           }
 
+          /* Paradise Animations V2.0 */
           @keyframes paradise-fadeInUp {
             from {
               opacity: 0;
@@ -1358,17 +1331,106 @@ export default function PrivacyBlackPage() {
               transform: translateY(0);
             }
           }
+          @keyframes paradise-pulse {
+            0%,
+            100% {
+              transform: scale(1);
+            }
+            50% {
+              transform: scale(1.05);
+            }
+          }
+          @keyframes paradise-glow {
+            0%,
+            100% {
+              box-shadow: 0 0 10px #8b5cf650;
+            }
+            50% {
+              box-shadow: 0 0 20px #8b5cf680, 0 0 30px #8b5cf660;
+            }
+          }
+          @keyframes paradise-shake {
+            0%,
+            100% {
+              transform: translateX(0);
+            }
+            25% {
+              transform: translateX(-3px);
+            }
+            75% {
+              transform: translateX(3px);
+            }
+          }
+          @keyframes paradise-bounce {
+            0%,
+            100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-8px);
+            }
+          }
 
+          /* Mute Button Animations */
           @keyframes paradise-mute-bounce {
             0%,
             100% {
               transform: translateY(0);
             }
             50% {
-              transform: translateY(-10px);
+              transform: translateY(calc(-10px * var(--animation-intensity)));
+            }
+          }
+          @keyframes paradise-mute-pulse {
+            0%,
+            100% {
+              transform: scale(1);
+            }
+            50% {
+              transform: scale(calc(1 + 0.05 * var(--animation-intensity)));
+            }
+          }
+          @keyframes paradise-mute-shake {
+            0%,
+            100% {
+              transform: translateX(0);
+            }
+            25% {
+              transform: translateX(calc(-5px * var(--animation-intensity)));
+            }
+            75% {
+              transform: translateX(calc(5px * var(--animation-intensity)));
+            }
+          }
+          @keyframes paradise-mute-glow {
+            0%,
+            100% {
+              box-shadow: 0 0 calc(10px * var(--animation-intensity)) #00c27a50;
+            }
+            50% {
+              box-shadow: 0 0 calc(20px * var(--animation-intensity)) #00c27a80,
+                0 0 calc(30px * var(--animation-intensity)) #00c27a60;
+            }
+          }
+          @keyframes paradise-mute-scale {
+            0%,
+            100% {
+              transform: scale(1);
+            }
+            50% {
+              transform: scale(calc(1 + 0.1 * var(--animation-intensity)));
+            }
+          }
+          @keyframes paradise-mute-rotate {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
             }
           }
 
+          /* Transition timing */
           .paradise-player-container * {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           }
